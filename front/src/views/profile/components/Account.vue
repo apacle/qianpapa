@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { update } from '@/api/user'
+import { updateUser } from '@/api/user'
 
 export default {
   props: {
@@ -38,7 +38,7 @@ export default {
     submit() {
       const _self = this
       return new Promise((resolve, reject) => {
-        update(_self.user).then(response => {
+        updateUser(_self.user).then(response => {
           console.log(response.data)
           // const key = response.data.qiniu_key
           // const token = response.data.qiniu_token

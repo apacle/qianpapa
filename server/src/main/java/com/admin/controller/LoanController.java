@@ -50,6 +50,6 @@ public class LoanController {
     @RequestMapping("/update")
     @ResponseBody
     public Response update(@RequestBody String req) {
-        return ResponseUtil.getResponse(loanService.update(req));
+        return loanService.update(req);
     }
 }

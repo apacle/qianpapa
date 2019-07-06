@@ -51,6 +51,6 @@ public class RepayController {
     @RequestMapping("/update")
     @ResponseBody
     public Response update(@RequestBody String req) {
-        return ResponseUtil.getResponse(repayService.update(req));
+        return repayService.update(req);
     }
 }

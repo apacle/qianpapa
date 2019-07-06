@@ -23,7 +23,7 @@ export function logout() {
   })
 }
 
-export function update(data) {
+export function updateUser(data) {
   return request({
     url: '/user/update',
     method: 'post',

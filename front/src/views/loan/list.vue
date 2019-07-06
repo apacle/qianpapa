@@ -171,8 +171,8 @@ export default {
     handleDownload() {
       this.downloadLoading = true
       import('@/vendor/Export2Excel').then(excel => {
-        const tHeader = ['ID', '名字', '电话', '职业', '地址', '业务员', '状态', '更新日期']
-        const filterVal = ['customerId', 'customerName', 'customerPhone', 'customerJob', 'customerAddress', 'customerStatus', 'userName', 'createTime']
+        const tHeader = ['编号', '贷款人', '经理人', '金额', '状态', '更新日期']
+        const filterVal = ['loanId', 'customerName', 'userNickname', 'loanAmount', 'customerStatus', 'createTime']
         const list = this.list
         const data = this.formatJson(filterVal, list)
         excel.export_json_to_excel({

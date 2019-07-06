@@ -20,13 +20,18 @@
 
           <el-col :span="24">
             <el-form-item prop="title">
-              <MDinput v-model="postForm.customerName" :maxlength="100" name="name" required>
-                还款人
+              <MDinput v-model="postForm.customerName" :maxlength="100" name="name" type="number" required>
+                还款人编号
               </MDinput>
             </el-form-item>
             <el-form-item prop="title">
-              <MDinput v-model="postForm.userNickname" :maxlength="100" name="name" required>
-                经理人
+              <MDinput v-model="postForm.userNickname" :maxlength="100" name="name" type="number" required>
+                经理人编号
+              </MDinput>
+            </el-form-item>
+            <el-form-item prop="title">
+              <MDinput v-model="postForm.loanId" :maxlength="100" name="name" required>
+                贷款编号
               </MDinput>
             </el-form-item>
             <el-form-item prop="title">
@@ -77,6 +82,7 @@ import { Status } from './Dropdown'
 
 const defaultForm = {
   repayId: undefined,
+  loanId: undefined,
   customerName: '', // 文章题目
   userNickname: '', // 文章题目
   repayStatus: 1,

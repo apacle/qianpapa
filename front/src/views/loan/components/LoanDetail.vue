@@ -26,13 +26,13 @@
               </MDinput>
             </el-form-item>
             <el-form-item prop="title">
-              <MDinput v-model="postForm.customerName" :maxlength="100" name="name" required>
-                贷款人
+              <MDinput v-model="postForm.customerId" :maxlength="100" name="name" type="number" required>
+                贷款人编号
               </MDinput>
             </el-form-item>
             <el-form-item prop="title">
-              <MDinput v-model="postForm.userNickname" :maxlength="100" name="name" required>
-                经理人
+              <MDinput v-model="postForm.userId" :maxlength="100" name="name" type="number" required>
+                经理人编号
               </MDinput>
             </el-form-item>
             <el-form-item prop="title">

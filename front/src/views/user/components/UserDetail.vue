@@ -21,12 +21,17 @@
           <el-col :span="24">
             <el-form-item prop="title">
               <MDinput v-model="postForm.userName" :maxlength="100" name="name" required>
-                名字
+                登陆名(不要特殊字符)
               </MDinput>
             </el-form-item>
             <el-form-item prop="title">
               <MDinput v-model="postForm.userPassword" :maxlength="100" name="name" type="password" required>
                 密码
+              </MDinput>
+            </el-form-item>
+            <el-form-item prop="title">
+              <MDinput v-model="postForm.userNickname" :maxlength="100" name="name" required>
+                昵称
               </MDinput>
             </el-form-item>
             <el-form-item prop="title">
@@ -191,6 +196,7 @@ export default {
         updateUser(this.postForm).then(response => {
           // console.log('发布结果' + response)
           this.postForm = response.data
+          // this.postForm.marketingStatus = 1
           this.$notify({
             title: '成功',
             message: '发布成功',

@@ -245,20 +245,6 @@ export default {
         }).catch(err => {
           console.log(err)
         })
-        // if (valid) {
-        //   this.loading = true
-        //   this.$notify({
-        //     title: '成功',
-        //     message: '发布成功',
-        //     type: 'success',
-        //     duration: 2000
-        //   })
-        //   this.postForm.customerStatus = 1
-        //   this.loading = false
-        // } else {
-        //   console.log('error submit!!')
-        //   return false
-        // }
       })
     }
     // draftForm() {
