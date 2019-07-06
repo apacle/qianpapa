@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>平安好贷-贷款服务</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="app_css/mobile2.css"/>
+    <link rel="stylesheet" href="app_css/index3.css"/>
+</head>
+<style>
+    .success_link {
+        width: 100%;
+        height: 9.147rem;
+        margin-top: 2rem;
+    }
+
+    .success_icon {
+        width: 24.4%;
+        height: auto;
+        margin-left: 37.8%;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .success_title {
+        width: 100%;
+        height: 1.5rem;
+        line-height: 1.5rem;
+        font-size: 0.96rem;
+        color: #f06532;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .success_txt {
+        width: 100%;
+        line-height: 1.5rem;
+        font-size: 0.8rem;
+        color: #333333;
+        text-align: center;
+    }
+
+    .success_a {
+        width: 87.2%;
+        height: 3.3rem;
+        background: url(app_img/success_btn3.png) no-repeat top center;
+        background-size: 100% auto;
+        display: block;
+        color: #fff;
+        margin-left: 6.4%;
+        text-indent: 26%;
+        line-height: 3.1rem;
+        margin-top: 1rem;
+    }
+</style>
+<body>
+<header><a href="javascript:void(0);"><img src="app_img/huoke_logo.png" alt=""></a></header>
+<!-- <div class="succ_con fix"> -->
+<!-- 	<img src="app_img/down2.png" alt="" class="succ_img fl" /> -->
+<!-- 	<div class="succ_r fl"> -->
+<!-- 		<div class="succ_tit">恭喜！您的贷款申请已受理！</div> -->
+<!-- 		<div class="succ_det">后续将有客户经理给您致电，请注意接听10101188的来电。</div> -->
+<!-- 	</div> -->
+<!-- </div> -->
+<!-- <div class="gw_btn2 fix"> -->
+<!-- 	<img src="app_img/Phone-On.gif" alt="" class="Phone-On fl"> -->
+<!-- 	<a href="tel:4000317265" class="link_m fr" otype="button" otitle="new.yds.thirdIB"> -->
+<!-- 		<h5 class="gw_phone">点击拨打&nbsp;400-031-7265</h5> -->
+<!-- 	</a> -->
+<!-- </div> -->
+
+<img src="app_img/success_icon.png" alt="" class="success_icon"/>
+<div class="success_title">恭喜！ 您的贷款申请已受理！</div>
+<div class="success_txt">后续将有客户经理给您致电，请注意接听 <br>0760-89889262的来电。</div>
+<a href="tel:4000317256" class="success_a" otype="button" otitle="new.yds.thirdIB">点击拨打 0760-89889262</a>
+<!--<a href="" id="banner" otype="button" otitle="new.yds.third.integral"><img src="app_img/success_link.jpg" alt=""-->
+                                                                           <!--class="success_link"></a>-->
+
+
+<!-- <div class="down_box" style="border: none;margin-top: 2rem;"> -->
+<!-- 	<div class="down_tit">下载APP可加速贷款</div> -->
+<!-- 	<div class="down_detail">通过APP可上传贷款材料，查询贷款进度</div> -->
+<!-- 	<div class="down_link fix down_link2"> -->
+<!-- 		<a href="https://itunes.apple.com/cn/app/%E5%B9%B3%E5%AE%89%E5%A5%BD%E8%B4%B7/id1294152536?mt=8" class="down_link_l fl"><img src="app_img/iphone.png" alt="" /></a> -->
+<!-- 		<a href="https://pahd-app.pingan.com.cn/pahd-static/staticfile/appDownload/appDownload.html" class="down_link_l fr"><img src="app_img/android.png" /></a> -->
+<!-- 	</div> -->
+<!-- 	<div class="down_hot">下载即可领取100元降息红包！</div> -->
+<!-- </div> -->
+</body>
+<script src="app_js/jquery.min.js"></script>
+<!--<script type="text/javascript" src="/common/js/jweixin-1.0.0.js"></script>-->
+<!--<script type="text/javascript" src="/common/js/wxShare.js"></script>-->
+<script type="text/javascript" src="app_js/common.js"></script>
+<script type="text/javascript">
+
+
+    function getCookie(cookieName) {
+        var strCookie = document.cookie;
+        var arrCookie = strCookie.split("; ");
+        for (var i = 0; i < arrCookie.length; i++) {
+            var arr = arrCookie[i].split("=");
+            if (cookieName == arr[0]) {
+                return arr[1];
+            }
+        }
+        return "";
+    }
+
+    var mediaSource = getCookie("mediaSourceStr");
+    if (mediaSource && /^ZTXYD-IVR-/.test(mediaSource)) {
+        $(".fr").attr("href", "tel:4000314965");
+        $(".gw_phone").html("点击拨打&nbsp;400-031-4965");
+    } else if (mediaSource && /^ZTXYD-weixintoufang-/.test(mediaSource)) {
+        $(".fr").attr("href", "tel:4006051732");
+        $(".gw_phone").html("点击拨打&nbsp;400-605-1732");
+    }
+
+    var url = window.location.href;
+
+    function isTestEvn() {
+        if (url.indexOf('test-haodai.pingan.com') != -1 || url.indexOf('test2-haodai.pingan.com') != -1) {
+            return true;
+        }
+        return false;
+    }
+
+    function getOutLoginUrl() {
+        var protocol = window.location.protocol;
+        var redirect_uri = '';
+        var appid = '';
+        var weappNo = '';
+        var menuId = '';
+        if (isTestEvn()) {
+            if ("https:" == protocol) {
+                redirect_uri = 'http%3A%2F%2Feim-talk-stg.dmzstg.pingan.com.cn%2Fits-pir%2Fredirect%3FbackUrl%3Dhttps%3A%2F%2Ftest-haodai.pingan.com%2Fgrzx%2Fwap%2FintegralItemMall.html%26weappNo%3DPINGAN_HD_01';
+                appid = 'wx1fab99773ab4588d';
+            } else {
+                redirect_uri = 'http%3A%2F%2Feim-talk-stg.dmzstg.pingan.com.cn%2Fits-pir%2Fredirect%3FbackUrl%3Dhttp%3A%2F%2Ftest-haodai.pingan.com%2Fgrzx%2Fwap%2FintegralItemMall.html%26weappNo%3DPINGAN_HD_01';
+                appid = 'wx1fab99773ab4588d';
+            }
+        } else {
+            if ("https:" == protocol) {
+                redirect_uri = 'http%3A%2F%2Feim.pingan.com.cn%2Fits%2Fredirect%3FbackUrl%3Dhttps%3A%2F%2Fhaodai.pingan.com%2Fgrzx%2Fwap%2FintegralItemMall.html%26weappNo%3DPINGAN_HD_01';
+                appid = 'wxea8c2a184f6288c4';
+            } else {
+                redirect_uri = 'http%3A%2F%2Feim.pingan.com.cn%2Fits%2Fredirect%3FbackUrl%3Dhttp%3A%2F%2Fhaodai.pingan.com%2Fgrzx%2Fwap%2FintegralItemMall.html%26weappNo%3DPINGAN_HD_01';
+                appid = 'wxea8c2a184f6288c4';
+            }
+        }
+
+        var final_url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='
+            + appid
+            + '&redirect_uri='
+            + redirect_uri
+            + '&response_type=code&scope=snsapi_base&state=sig#wechat_redirect';
+        return final_url;
+    }
+
+    $("#banner").attr("href", getOutLoginUrl());
+
+</script>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name='viewport' content='width=device-width,initial-scale=1.0,maximum-scale=1.0'>
+    <meta charset="UTF-8">
+    <meta name="fotmat-detection" content="telephone=no">
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/base64.js"></script>
+    <script type="text/javascript" src="js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/calculate.js?v=1.1"></script>
+    <script type="text/javascript" src="js/wxShare.js"></script>
+    <link rel="stylesheet" href="css/mobile2.css"/>
+    <link rel="stylesheet" href="css/calculator.css">
+    <title>额度测试</title>
+    <script>
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+
+        window.localStorage.setItem('userId', GetQueryString("userId"));
+        window.localStorage.setItem('marketingId', GetQueryString("marketingId"));
+    </script>
+</head>
+<body>
+<div class="top">
+    <h1 class="p_top">最高可贷200万</h1>
+    <p class="p_test">30秒完成测试</p>
+</div>
+<div class="cal_up">
+    <img src="images/lunpan.gif" alt="" style="margin-top: -1px;"/>
+    <div class="up_date">测试时间：2017-07-17</div>
+</div>
+<div class="tips">
+    *测试结果仅供参考，最终额度以银行评估为准
+</div>
+<form class="form-group" style="display:none" method="post" id="orderInfoForm">
+    <input type="hidden" name="mediaSourceId" id="mediaSource" value="ZTXYD-weixin-fenxiang-huoke-DKJSQ"/>
+    <input type="hidden" name="innerMedia" id="innerMedia"/>
+    <input type="hidden" name="lpPage" id="lpPage"/>
+    <input type="hidden" name="formCode" value="YDS" id="formCode"/>
+    <input type="hidden" name="isDirectForm" value="N" id="isDirectForm"/>
+    <input type="hidden" name="pageType" value="3" id="pageType"/>
+    <input type="hidden" name="campaignCode" value="XX_CAMP_1010WZ" id="campaignCode"/>
+    <input type="hidden" name="campaignName" value="1010直通网站" id="campaignName"/>
+    <input type="hidden" value="" id="sourceType" name="sourceType"/>
+    <input type="hidden" value="Y" id="smsAuthor" name="smsAuthor"/>
+    <input type="hidden" value="3" id="custSrc" name="custSrc"/>
+    <input type="hidden" value="" id="netCampaignCode" name="netCampaignCode"/>
+    <input type="hidden" value="" id="idMediaSourceSence" name="idMediaSourceSence"/>
+</form>
+<!--<div class="cal_top">
+	<div class="cal_top_box fix">
+		<div class="box_txt fl" style="width: 10%;min-width:3rem;">你的职业</div>
+		<select name="" id="workKind" class="box_select fr">
+			<option value="companeyEmployee">上班族</option>
+			<option value="govermentEmployee">公务员</option>
+			<option value="businessman">自有公司</option>
+			<option value="selfEmployed">其他</option>
+		</select>
+	</div>
+	<div class="cal_top_box fix">
+		<div class="box_txt fl" style="width: 15%;min-width:3.5rem;">月收入</div>
+		<div class="box_money fr">元</div>
+		<input type="text" class="box_input fr" id="income" maxlength="15" placeholder="请输入" />
+	</div>
+</div>-->
+
+<div class="cal_top">
+    <div class="cal_top_box fix">
+        <select name="" id="workKind" class="box_select fr" style="padding-left: 1.26rem;">
+            <option value="companeyEmployee">上班族</option>
+            <option value="govermentEmployee">公务员</option>
+            <option value="businessman">自有公司</option>
+            <option value="selfEmployed">其他</option>
+        </select>
+    </div>
+    <div class="cal_top_box fix" style="margin-left: 0.2rem;">
+        <div class="box_money fr">元</div>
+        <input type="text" class="box_input fr" id="income" maxlength="15" placeholder="输入你的月收入"/>
+    </div>
+</div>
+
+<div class="cal_main">
+    <div class="main_box fix">
+        <!--<div class="main_name fl"><img src="images/name.png" alt="" /></div>-->
+        <input type="text" class="main_input fl" placeholder="请输入你的姓名" id="userName"/>
+    </div>
+    <div class="main_box fix" style="margin-top: 1rem;">
+        <!--<div class="main_name fl"><img src="images/phone.png" alt="" /></div>-->
+        <input type="tel" class="main_input fl" maxlength="11" placeholder="请输入你的手机号码" id="telphone"/>
+    </div>
+</div>
+<div class="cal_error" id="incomeError"></div>
+<input class="cal_but" type="button" id="calculate" value="立即测试" otype="button" otitle="jisuanqi.calculate"/>
+<!--弹窗分享-->
+<div class="mgm_black d_share"></div>
+<div class="mgm_close d_share" otype="button" otitle="dkjsq.friendTips"><img src="images/mgm_close.png" alt=""/></div>
+<div class="share_toast d_share">
+    <div class="share_t_tit">请复制该链接
+        <br/>并粘贴在微信对话框内进行分享
+    </div>
+    <div class="share_box fix">
+        <div class="wechat" id="shareToWX"><img src="images/share_wechat.png" alt=""/></div>
+        <div class="wechat" id="shareToPeople"><img src="images/share_people.png" alt=""/></div>
+        <div class="wechat" id="shareToQq"><img src="images/share_qq.png" alt=""/></div>
+    </div>
+</div>
+<div class="cal_black cal_tag"></div>
+<div class="cal_share cal_tag"><img src="images/share.png" alt=""/></div>
+<script type="text/javascript">
+    //wap版webtrends代码
+    function loadWTScript(a, b) {
+        var c = document.createElement("script");
+        c.type = "text/javascript",
+            c.async = !0, c.id = 'wtjs',
+            c.src = a,
+            dcsReady(c, b),
+            document.getElementsByTagName("head")[0].appendChild(c)
+    }
+
+    function dcsReady(a, b) {
+        a.readyState ? a.onreadystatechange = function () {
+            ("loaded" == a.readyState || "complete" == a.readyState) && (a.onreadystatechange = null, b())
+        } : a.onload = function () {
+            b()
+        }
+    }
+
+    if (document.getElementById("wtjs") == null)
+        loadWTScript(window.location.protocol.indexOf('https:') == 0 ? 'https://pa-ssl.pingan.com/app_js/sdc/prd/sdc9_m.js' : 'http://www.pingan.com/app_js/sdc/prd/sdc9_m.js', function () {
+            if (typeof(_tag) != "undefined") {
+                _tag.dcsid = "dcs82b9ujitigdu3gaykxw0hn_5p6b";  //dcsid参数用于设置日志记录在哪个文件里
+                _tag.DCSext.platform = "xxxx";  //平台名字
+                var s = _tag.dcsGetIdAsync();
+                if (s)
+                    dcsReady(s, function () {
+                        _tag.dcsCollect()
+                    });
+                else
+                    _tag.dcsCollect();
+            }
+        })
+</script>
+</body>
+</html>

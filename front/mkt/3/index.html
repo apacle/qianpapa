@@ -1,0 +1,665 @@
+<!-- saved from url=(0033)http://edai.chuanrong888.com/#top -->
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="keywords" content="信贷信息服务网站">
+    <meta name="description"
+          content="免责声明：本网站仅提供贷款信息撮合服务，不提供贷款服务，不承担相关法律责任。提醒网民在贷款过程中谨慎校验贷款提供方或中间服务商的资质，在成功贷款前，请勿打款给任何贷款机构或个人。">
+    <title>网上申请贷款服务</title>
+    <meta name="keywords">
+    <meta name="description">
+    <meta name="viewport" content="width=device-width">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+
+    <link href="./res/css.css" rel="stylesheet">
+    <link href="./res/base.css" rel="stylesheet">
+    <link href="./res/tab.css" rel="stylesheet">
+    <script type="text/javascript" src="./res/no.js"></script>
+
+    <script>
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+
+        var regexp = /\/[0-9]+\//g;
+        var nums = window.location.href.match(regexp);
+        if (nums.length > 0) {
+            window.localStorage.setItem('marketingId', nums[0].replace("/","").replace("/",""));
+        }
+    </script>
+</head>
+<body style="">
+
+
+<div class="header" style="max-width:640px; margin:0px auto;">
+    <div class="am-g">
+        <!--<div class="logo">
+          <h1 title=""><img src="images/logo.png" alt="" /></h1>
+        </div>-->
+    </div>
+</div>
+<div class="container" style="max-width:640px; margin:0px auto;">
+
+    <!---Banner Begin--->
+    <div class="banners-ad">
+        <div class="index-product-photo"><a><img src="./res/banner.jpg" alt=""></a></div>
+    </div>
+    <!---IndexService Begin--->
+
+    <div class="tel-ad"><a href="javascript:void(0)" class="btn-tel"> <span class="show-icon"></span> <span
+            class="show-text">全国均可申请，无地域限制</span> </a></div>
+    <div class="simple-apply">
+        <a name="top"></a>
+        <div class="simple-apply-title"><span>快速在线申请</span></div>
+        <div class="simple-content">
+            <div class="apply-form">
+                <ul>
+                    <li class="form-li simple-apply-step step-esd-new">
+                        <div class="simple-step-box"><i class="icon-one"></i> <span class="sp-step">网上申请</span> <i
+                                class="icon-step-arrows"></i> <i class="icon-two"></i> <span
+                                class="sp-step">客服电话回访</span> <i class="icon-step-arrows"></i><i class="icon-three"></i><span
+                                class="sp-step">审批放款</span></div>
+                    </li>
+                </ul>
+
+                <script type="text/javascript">
+                    function xxcheck() {
+                        if (document.znform.name.value == "") {
+                            alert("请填写您的姓名!");
+                            document.znform.name.focus();
+                            return false;
+                        }
+                        var reg1 = /^[\u4e00-\u9fa5]{2,8}$/;
+                        if (!reg1.test(document.znform.name.value)) {
+                            alert('请正确填写您的姓名!');
+                            document.znform.name.focus();
+                            return false;
+                        }
+                        if (document.znform.tel.value == "") {
+                            alert("请填写手机号码!");
+                            document.znform.tel.focus();
+                            return false;
+                        }
+                        var reg2 = /^1[3,4,5,6,7,8,9]\d{9}$/;
+                        if (!reg2.test(document.znform.tel.value)) {
+                            alert('请正确填写手机号码!');
+                            document.znform.tel.focus();
+                            return false;
+                        }
+
+                        if (document.znform.money.value == "") {
+                            alert("请选择申请额度!");
+                            return false;
+                        }
+                        if (document.znform.yongtu.value == "") {
+                            alert("请选择贷款种类!");
+                            return false;
+                        }
+                        window._agl && window._agl.push(['track', ['success', {t: 3}]]);
+                        document.getElementById("zntjan").disabled = true;
+                    }
+                </script>
+
+
+                <form action="" enctype="multipart/form-data" method="post" name="znform" onsubmit="return xxcheck();">
+                    <input type="hidden" name="action" value="post">
+                    <input type="hidden" name="diyid" value="1">
+                    <input type="hidden" name="do" value="2">
+                    <ul>
+                        <li class="form-li">
+                            <div class="form-key">您的姓名</div>
+                            <div class="form-value">
+                                <input class="input-text" data-val="true" data-val-required="请输入姓名." id="name"
+                                       maxlength="50" name="name" placeholder="请填写您的真实姓名" type="text" value="">
+                                <div class="alert-box"></div>
+                            </div>
+                        </li>
+                        <li class="form-li">
+                            <div class="form-key"> 手机号码</div>
+                            <div class="form-value">
+                                <input class="input-text" name="tel" id="tel" placeholder="请填写您的手机号码" maxlength="11"
+                                       type="text">
+                                <div class="alert-box"></div>
+                            </div>
+                        </li>
+
+                        <li class="form-li">
+                            <div class="form-key"> 贷款种类</div>
+                            <div class="form-value">
+                                <select id="yongtu" name="yongtu" class="input-text wh">
+                                    <option value="个人贷款">个人贷款</option>
+                                    <option value="企业贷款">企业贷款</option>
+                                    <option value="房屋贷款">房屋贷款</option>
+                                    <option value="汽车贷款">汽车贷款</option>
+                                    <option value="商户贷款">商户贷款</option>
+                                    <option value="结婚贷款">结婚贷款</option>
+                                    <option value="短期贷款">短期贷款</option>
+                                    <option value="小额贷款">小额贷款</option>
+                                    <option value="大额贷款">大额贷款</option>
+                                    <option value="购物贷款">购物贷款</option>
+                                </select>
+                                <div class="alert-box"></div>
+                            </div>
+                        </li>
+                        <li class="form-li">
+                            <div class="form-key"> 贷款金额</div>
+                            <div class="form-value">
+
+                                <select name="money" class="input-text wh">
+                                    <option value="3000">3万</option>
+                                    <option value="4000">4万</option>
+                                    <option value="5000">5万</option>
+                                    <option value="6000">6万</option>
+                                    <option value="7000">7万</option>
+                                    <option value="8000">8万</option>
+                                    <option value="9000">9万</option>
+                                    <option value="10000">10万</option>
+                                    <option value="11000">11万</option>
+                                    <option value="12000">12万</option>
+                                    <option value="13000">13万</option>
+                                    <option value="14000">14万</option>
+                                    <option value="15000">15万</option>
+                                    <option value="16000">16万</option>
+                                    <option value="17000">17万</option>
+                                    <option value="18000">18万</option>
+                                    <option value="19000">19万</option>
+                                    <option value="20000">20万</option>
+                                    <option value="21000">21万</option>
+                                    <option value="22000">22万</option>
+                                    <option value="23000">23万</option>
+                                    <option value="24000">24万</option>
+                                    <option value="25000">25万</option>
+                                    <option value="26000">26万</option>
+                                    <option value="27000">27万</option>
+                                    <option value="28000">28万</option>
+                                    <option value="29000">29万</option>
+                                    <option value="30000">30万</option>
+                                </select>
+                                <div class="alert-box"></div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <input name="time" value="2019-06-23 09:10:58" type="hidden" id="time" style="width:250px"
+                           class="intxt"><input type="hidden" name="ip" id="ip" style="width:250px" class="intxt"
+                                                value="163.179.62.90">
+
+                    <script type="text/javascript">
+                        // window.onload = function () {
+                        //     var nowDate = new Date();
+                        //     var str = nowDate.getFullYear() + "-" + (nowDate.getMonth() + 1) + "-" + nowDate.getDate() + " " + nowDate.getHours() + ":" + nowDate.getMinutes() + ":" + nowDate.getSeconds();
+                        //     document.getElementById("shijian").value = str;
+                        // }
+                    </script>
+                    <input type="hidden" name="dede_fields"
+                           value="name,text;tel,text;idcard,text;address,text;yongtu,text;money,text;time,text;ip,text">
+                    <input type="hidden" name="dede_fieldshash" value="363d6411bd33a493ab0489864e9a6c0e">
+                    <!--<input type="submit" class="am-btn am-btn-green am-btn-block mt20 fl" name="zntjan" id="zntjan"-->
+                    <!--value="立即提交">   -->
+                    <a href="#" class="am-btn am-btn-green am-btn-block mt20 fl" name="zntjan" id="zntjan"
+                       value="立即提交">快速申请</a>
+                </form>
+
+
+                <div class="simple-apply-alert"> 最高可贷30万,急速预审，快速放款</div>
+            </div>
+        </div>
+    </div>
+    <div class="wrap">
+        <div class="tabs"><a hidefocus="true" class="active">创业贷</a> <a hidefocus="true" class="">消费贷</a> <a
+                hidefocus="true" class="">购房贷</a> <a hidefocus="true" class="">购车贷</a></div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper"
+                 style="width: 2560px; height: 420px; transform: translate3d(0px, 0px, 0px); transition-duration: 0s;">
+                <div class="swiper-slide swiper-slide-visible swiper-slide-active" style="width: 640px; height: 420px;">
+                    <div class="index-content">
+                        <div class="index-product">
+                            <!--div class="index-product-photo"> <img alt="创业贷" src="images/d-1.jpg"> </div -->
+                            <div class="index-product-info">
+                                <ul>
+                                    <li>
+                                        <table>
+                                            <tbody>
+                                            <tr>
+                                                <td class="icon-product"><img src="./res/a6.png"></td>
+                                                <td class="text-product"><b>最高30万</b>
+                                                    <p>免抵押免担保，最高可贷30万</p></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </li>
+                                    <li>
+                                        <table>
+                                            <tbody>
+                                            <tr>
+                                                <td class="icon-product"><img src="./res/a3.png"></td>
+                                                <td class="text-product"><b>即日放款</b>
+                                                    <p>手续便捷，最快1天放款</p></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </li>
+                                    <li>
+                                        <table>
+                                            <tbody>
+                                            <tr>
+                                                <td class="icon-product"><img src="./res/a4.png"></td>
+                                                <td class="text-product"><b>期限灵活</b>
+                                                    <p>贷款周期1-5年，可灵活选择</p></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </li>
+                                    <li style="border: medium none;">
+                                        <table>
+                                            <tbody>
+                                            <tr>
+                                                <td class="icon-product"><img src="./res/a7.png"></td>
+                                                <td class="text-product"><b>轻松还款</b>
+                                                    <p>每月等本等息方式还款</p></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </li>
+                                </ul>
+                                <button class="am-btn am-btn-green am-btn-block"
+                                        onclick="javascript:location.href=&#39;#top&#39;" type="button">立即申请
+                                </button>
+                                <!--<!--<div class="index-product-alert">贷款不成功，不收取任何费用。</div>-->--&gt;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" style="width: 640px; height: 420px;">
+                    <div class="content-slide">
+                        <div class="index-content">
+                            <div class="index-product">
+                                <!-- div class="index-product-photo"> <img alt="消费贷" src="images/d-2.jpg"> </div -->
+                                <div class="index-product-info">
+                                    <ul>
+                                        <li>
+                                            <table>
+                                                <tbody>
+                                                <tr>
+                                                    <td class="icon-product"><img src="./res/a6.png"></td>
+                                                    <td class="text-product"><b>最高30万</b>
+                                                        <p>免抵押免担保，最高可贷30万</p></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table>
+                                                <tbody>
+                                                <tr>
+                                                    <td class="icon-product"><img src="./res/a2.png"></td>
+                                                    <td class="text-product"><b>足不出户</b>
+                                                        <p>全程网络贷款，无需到门店办理</p></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table>
+                                                <tbody>
+                                                <tr>
+                                                    <td class="icon-product"><img src="./res/a3.png"></td>
+                                                    <td class="text-product"><b>即日放款</b>
+                                                        <p>手续简便，最快1天放款</p></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </li>
+                                        <li style="border: medium none;">
+                                            <table>
+                                                <tbody>
+                                                <tr>
+                                                    <td class="icon-product"><img src="./res/a4.png"></td>
+                                                    <td class="text-product"><b>期限灵活</b>
+                                                        <p>贷款期限可选择12、18、24、30、36个月</p></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </li>
+                                    </ul>
+                                    <button class="am-btn am-btn-green am-btn-block"
+                                            onclick="javascript:location.href=&#39;#top&#39;" type="button">立即申请
+                                    </button>
+                                    <!--<div class="index-product-alert">贷款不成功，不收取任何费用。</div>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" style="width: 640px; height: 420px;">
+                    <div class="content-slide">
+                        <div class="index-content">
+                            <div class="index-product">
+                                <!-- div class="index-product-photo"> <img alt="购房贷" src="images/d-3.jpg"> </div -->
+                                <div class="index-product-info">
+                                    <ul>
+                                        <li>
+                                            <table>
+                                                <tbody>
+                                                <tr>
+                                                    <td class="icon-product"><img src="./res/a3.png"></td>
+                                                    <td class="text-product"><b>到账快</b>
+                                                        <p>最快3个工作日到账</p></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table>
+                                                <tbody>
+                                                <tr>
+                                                    <td class="icon-product"><img src="./res/a4.png"></td>
+                                                    <td class="text-product"><b>灵活还款</b>
+                                                        <p>可选不同额度与还款方式</p></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table>
+                                                <tbody>
+                                                <tr>
+                                                    <td class="icon-product"><img src="./res/a6.png"></td>
+                                                    <td class="text-product"><b>额度高</b>
+                                                        <p>最低可借1万元最高30万元</p></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </li>
+                                        <li style="border: medium none;">
+                                            <table>
+                                                <tbody>
+                                                <tr>
+                                                    <td class="icon-product"><img src="./res/a8.png"></td>
+                                                    <td class="text-product"><b>无抵押</b>
+                                                        <p>不用您抵押任何资产</p></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </li>
+                                    </ul>
+                                    <button class="am-btn am-btn-green am-btn-block"
+                                            onclick="javascript:location.href=&#39;#top&#39;" type="button">立即申请
+                                    </button>
+                                    <!--<div class="index-product-alert">贷款不成功，不收取任何费用。</div>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" style="width: 640px; height: 420px;">
+                    <div class="index-content">
+                        <div class="index-product">
+                            <!-- div class="index-product-photo"> <img alt="购车贷" src="images/d-4.jpg"> </div -->
+                            <div class="index-product-info">
+                                <ul>
+                                    <li>
+                                        <table>
+                                            <tbody>
+                                            <tr>
+                                                <td class="icon-product"><img src="./res/a3.png"></td>
+                                                <td class="text-product"><b>到账快</b>
+                                                    <p>最快当日到账<input size="1" name="price" value="0"
+                                                                    style="color:#fff; display:none;" readonly=""></p>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </li>
+                                    <li>
+                                        <table>
+                                            <tbody>
+                                            <tr>
+                                                <td class="icon-product"><img src="./res/a4.png"></td>
+                                                <td class="text-product"><b>灵活还款</b>
+                                                    <p>可选不同额度不同还款方式</p></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </li>
+                                    <li>
+                                        <table>
+                                            <tbody>
+                                            <tr>
+                                                <td class="icon-product"><img src="./res/a6.png"></td>
+                                                <td class="text-product"><b>额度高</b>
+                                                    <p>最高可达评估价的90%</p></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </li>
+                                    <li style="border: medium none;">
+                                        <table>
+                                            <tbody>
+                                            <tr>
+                                                <td class="icon-product"><img src="./res/a7.png"></td>
+                                                <td class="text-product"><b>不押车</b>
+                                                    <p>自由行驶不受阻</p></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </li>
+                                </ul>
+                                <button class="am-btn am-btn-green am-btn-block"
+                                        onclick="javascript:location.href=&#39;#top&#39;" type="button">立即申请
+                                </button>
+                                <!--<div class="index-product-alert">贷款不成功，不收取任何费用。</div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./res/jquery-1.10.1.min.js"></script>
+<script src="./res/idangerous.swiper.min.js"></script>
+
+<script>
+
+    var tabsSwiper = new Swiper('.swiper-container', {
+        speed: 500,
+        onSlideChangeStart: function () {
+            $(".tabs .active").removeClass('active');
+            $(".tabs a").eq(tabsSwiper.activeIndex).addClass('active');
+        }
+    });
+
+    $(".tabs a").on('touchstart mousedown', function (e) {
+        e.preventDefault()
+        $(".tabs .active").removeClass('active');
+        $(this).addClass('active');
+        tabsSwiper.swipeTo($(this).index());
+    });
+
+    $(".tabs a").click(function (e) {
+        e.preventDefault();
+    });
+
+    $("#zntjan").click(function () {
+        var baseUrl = "http://www.qianpapa.com/prod-api/";
+        if (window.location.href.indexOf("localhost") != -1) {
+            baseUrl = "http://localhost:8899/";
+        } else if (window.location.href.indexOf("faqianle.cc") != -1) {
+            baseUrl = "http://www.faqianle.cc/prod-api/";
+        }
+
+        var nums = window.location.href.match(regexp);
+        var marketingId = 1;
+        if (nums.length > 0) {
+            marketingId = nums[0].replace("/", "").replace("/", "");
+        }
+
+        $.ajax({
+            type: "post",
+            url: baseUrl + "customer/register",
+            data: {
+                userId: GetQueryString("userId"),
+                marketingId: marketingId,
+                // cn: this.$store.state.cn || sessionStorage.getItem("cn"),
+                customerPhone: $("input[name='tel']").val(),
+                customerName: $("input[name='name']").val(),
+                customerLine: $("select[name='money']").find("option:selected").val(),
+                // customerJob: window.localStorage.getItem("customerJob"),
+                // customerIncome: window.localStorage.getItem("customerIncome"),
+                // customerSex: params.sex,
+            },
+            dataType: 'json',  //【这里要小心啊，不要用jsonp，一定是json】
+            crossDomain: true,  //【这个很重要，一定要加】
+            success: function (response) {
+                console.log(response);
+                if (response.code === 10001)
+                    alert(response.msg);
+                else
+                    window.location.href = "/marketing/2/wap/huoke/step3-success.html";
+            },
+            error: function (result) {
+                console.log(result);
+            }
+        });
+    })
+</script>
+<div class="index-content" style="max-width:640px; margin:0px auto;">
+    <div class="index-product">
+        <div class="index-product-title"><b>客户案例</b></div>
+        <div class="index-product-photo">
+            <div class="index-product-alert">我们已为数万名小企业主与个人提供了快速简便、友好便利的小额贷款技术服务</div>
+            <script src="./res/jquery.flexslider-min.js"></script>
+            <script type="text/javascript">
+                $(window).load(function () {
+                    $('.flexslider').flexslider();
+                });
+            </script>
+            <div class="flexslider">
+                <ul class="slides">
+                    <li style="width: 100%; float: left; margin-right: -100%; display: none;">
+                        <table border="0">
+                            <tbody>
+                            <tr>
+                                <td><img src="./res/al-1.jpg"></td>
+                                <td><img src="./res/al-6.jpg"></td>
+                                <td><img src="./res/al-5.jpg"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                    <li style="width: 100%; float: left; margin-right: -100%; display: list-item;">
+                        <table border="0">
+                            <tbody>
+                            <tr>
+                                <td><img src="./res/al-4.jpg"></td>
+                                <td><img src="./res/al-3.jpg"></td>
+                                <td><img src="./res/al-2.jpg"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                </ul>
+                <ol class="flex-control-nav">
+                    <li><a class="">1</a></li>
+                    <li><a class="active">2</a></li>
+                </ol>
+                <ul class="flex-direction-nav">
+                    <li><a class="prev">Previous</a></li>
+                    <li><a class="next">Next</a></li>
+                </ul>
+                <ol class="flex-control-nav">
+                    <li><a>1</a></li>
+                    <li><a>2</a></li>
+                </ol>
+                <ul class="flex-direction-nav">
+                    <li><a class="prev" href="http://pk.xqwt.mobi/pp/#">Previous</a></li>
+                    <li><a class="next" href="http://pk.xqwt.mobi/pp/#">Next</a></li>
+                </ul>
+                <ol class="flex-control-nav">
+                    <li><a>1</a></li>
+                    <li><a>2</a></li>
+                </ol>
+                <ul class="flex-direction-nav">
+                    <li><a class="prev" href="http://pk.xqwt.mobi/pp/#">Previous</a></li>
+                    <li><a class="next" href="http://pk.xqwt.mobi/pp/#">Next</a></li>
+                </ul>
+                <ol class="flex-control-nav">
+                    <li><a>1</a></li>
+                    <li><a>2</a></li>
+                </ol>
+                <ul class="flex-direction-nav">
+                    <li><a class="prev" href="http://jiekuan.myzcgl.top/#">Previous</a></li>
+                    <li><a class="next" href="http://jiekuan.myzcgl.top/#">Next</a></li>
+                </ul>
+                <ol class="flex-control-nav">
+                    <li><a>1</a></li>
+                    <li><a>2</a></li>
+                </ol>
+                <ul class="flex-direction-nav">
+                    <li><a class="prev" href="http://edai.chuanrong888.com/#">Previous</a></li>
+                    <li><a class="next" href="http://edai.chuanrong888.com/#">Next</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="regard-about">
+    <div class="regard-about-content">
+
+        <div class="regard-about-info">
+            <div class="show-text"><b style="color:#F45337;" class="p_name"> </b> 为您量身打造，用途广泛买房、买车、装修、结婚、医疗……满足多种贷款需求。
+            </div>
+            <div class="show-info">
+                <ul>
+                    <li>
+                        <div class="show-icon"><img src="./res/icon_news.png"></div>
+                        <div class="show-about">最高百万</div>
+                        <div class="show-describe">免抵押免担保，最高可贷30万</div>
+                    </li>
+                    <li>
+                        <div class="show-icon"><img src="./res/icon_news.png"></div>
+                        <div class="show-about">即日放款</div>
+                        <div class="show-describe">手续简便，最快1天放款</div>
+                    </li>
+                    <li>
+                        <div class="show-icon"><img src="./res/icon_news.png"></div>
+                        <div class="show-about">足不出户</div>
+                        <div class="show-describe">全程网络贷款，无需到店面办理</div>
+                    </li>
+                    <li>
+                        <div class="show-icon"><img src="./res/icon_news.png"></div>
+                        <div class="show-about">轻松还款</div>
+                        <div class="show-describe">每月等本等息方式还款</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="root-ad btn-tel">
+<span>
+版权：Copyright@广东省中山市钱爸爸QianPaPa.com
+蜀ICP备14006718号-1&nbsp;
+地址：广东省中山市石岐区&nbsp;
+</span>
+    <span style="color:#000;margin-top: 10px">
+免责声明：市场有风险
+选择需谨慎本机构不做任何贷前收费行为
+1.近期诈骗案件高发&nbsp;提高安全意识&nbsp;谨防上当受骗
+2.放款机构视个人征信情况而定&nbsp;以实际放款机构为准</span>
+</div>
+
+
+<div>
+    <object id="ClCache" click="sendMsg" host="" width="0" height="0"></object>
+</div>
+</body>
+</html>

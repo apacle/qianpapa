@@ -1,0 +1,27 @@
+server :
+  port : 8899
+  tomcat :
+    max-connections : 300
+    max-threads : 200
+    min-spare-threads : 100
+
+logging :
+  config : classpath:config/logback-spring.xml
+
+spring :
+  application :
+    name : vue
+  session :
+    store-type : none
+  resources :
+    static-locations : classpath:/web/
+  http :
+    encoding :
+      force : true
+      charset : UTF-8
+      enabled : true
+
+mybatis:
+#  mapperLocations: classpath*:com/vue/**/mapper/*.xml
+  typeAliasesPackage : com.vue.**.entity
+  config : classpath:config/mybatis-config.xml

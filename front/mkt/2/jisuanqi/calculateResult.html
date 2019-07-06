@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name='viewport' content='width=device-width,initial-scale=1.0,maximum-scale=1.0'>
+    <meta charset="UTF-8">
+    <meta name="fotmat-detection" content="telephone=no">
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/calc_result.js"></script>
+    <script type="text/javascript" src="js/wxShare.js"></script>
+    <link rel="stylesheet" href="css/mobile2.css"/>
+    <link rel="stylesheet" href="css/calculator.css">
+    <title>测试结果</title>
+</head>
+<body style="background: #f5f5f5;">
+<div class="cal_head">
+    <div class="head_top"></div>
+    <div class="cal_prive fix">
+        <span class="price" id="showResult">800,000<span class="price_txt">元</span></span>
+
+    </div>
+    <a href="#" class="head_again" id="again" otype="button" otitle="dkjsq.againTest">重新测试</a>
+    <!--<div class="cal_help">*该结果仅供参考，最终以审批结果为准</div>-->
+</div>
+
+<div class="cal_friend cal_get n" id="loanRequest" otype="button" otitle="jisuanqi.immediateLoan">马上贷款</div>
+<a href="#" class="cal_friend1 m" id="share" otype="button" otitle="dkjsq.invitFriendsTest">邀请好友测试</a>
+
+<div class="cal_ewm">
+    <img src="images/code.jpeg" alt="" style="" class="code">
+    <img src="images/new.png" alt=""/>
+</div>
+<a class="custom_box">
+    <!--href="tel:######"-->
+    <div class="custom service"><img src="images/custom.png" alt=""/></div>
+    <div class="custom_txt service">对话客服</div>
+</a>
+<div class="cal_black cal_tag"></div>
+<div class="cal_share cal_tag"><img src="images/share.png" alt=""/></div>
+<script type="text/javascript">
+    //wap版webtrends代码
+    function loadWTScript(a, b) {
+        var c = document.createElement("script");
+        c.type = "text/javascript",
+            c.async = !0, c.id = 'wtjs',
+            c.src = a,
+            dcsReady(c, b),
+            document.getElementsByTagName("head")[0].appendChild(c)
+    }
+
+    function dcsReady(a, b) {
+        a.readyState ? a.onreadystatechange = function () {
+            ("loaded" == a.readyState || "complete" == a.readyState) && (a.onreadystatechange = null, b())
+        } : a.onload = function () {
+            b()
+        }
+    }
+
+    if (document.getElementById("wtjs") == null)
+        loadWTScript(window.location.protocol.indexOf('https:') == 0 ? 'https://pa-ssl.pingan.com/app_js/sdc/prd/sdc9_m.js' : 'http://www.pingan.com/app_js/sdc/prd/sdc9_m.js', function () {
+            if (typeof(_tag) != "undefined") {
+                _tag.dcsid = "dcs82b9ujitigdu3gaykxw0hn_5p6b";  //dcsid参数用于设置日志记录在哪个文件里
+                _tag.DCSext.platform = "xxxx";  //平台名字
+                var s = _tag.dcsGetIdAsync();
+                if (s)
+                    dcsReady(s, function () {
+                        _tag.dcsCollect()
+                    });
+                else
+                    _tag.dcsCollect();
+            }
+        })
+</script>
+</body>
+</html>
