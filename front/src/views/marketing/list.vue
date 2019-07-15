@@ -41,8 +41,8 @@
       </el-table-column>
       <el-table-column align="center" label="下载二维码" width="120">
         <template slot-scope="scope">
-          <a :href="'http://localhost:8899/common/qrcode?url=' + scope.row.marketingUrl + '&icon=' + scope.row.marketingIcon" :download="scope.row.marketingName">
-            <img class="img-circle" :src="'http://localhost:8899/common/qrcode?url=' + scope.row.marketingUrl + '&icon=' + scope.row.marketingIcon">
+          <a :href="'http://qianpapa.com/prod-api/common/qrcode?url=' + scope.row.marketingUrl + '&icon=' + scope.row.marketingIcon" :download="scope.row.marketingName">
+            <img class="img-circle" :src="'http://qianpapa.com/prod-api/common/qrcode?url=' + scope.row.marketingUrl + '&icon=' + scope.row.marketingIcon">
             <!-- <el-button type="primary" size="small" icon="document" @click="handleCopy(scope.row.marketingUrl,$event)">复制链接</el-button> -->
           </a>
         </template>

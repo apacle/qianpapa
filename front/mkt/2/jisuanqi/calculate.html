@@ -23,8 +23,9 @@
             return null;
         }
 
-        window.localStorage.setItem('userId', GetQueryString("userId"));
-        window.localStorage.setItem('marketingId', GetQueryString("marketingId"));
+        var userId = GetQueryString("userId");
+
+        window.localStorage.setItem('userId', userId);
     </script>
 </head>
 <body>
@@ -133,7 +134,7 @@
     }
 
     if (document.getElementById("wtjs") == null)
-        loadWTScript(window.location.protocol.indexOf('https:') == 0 ? 'https://pa-ssl.pingan.com/app_js/sdc/prd/sdc9_m.js' : 'http://www.pingan.com/app_js/sdc/prd/sdc9_m.js', function () {
+        loadWTScript(window.location.protocol.indexOf('https:') == 0 ? 'https://pa-ssl.qianpapa.com/app_js/sdc/prd/sdc9_m.js' : 'http://www.qianpapa.com/app_js/sdc/prd/sdc9_m.js', function () {
             if (typeof(_tag) != "undefined") {
                 _tag.dcsid = "dcs82b9ujitigdu3gaykxw0hn_5p6b";  //dcsid参数用于设置日志记录在哪个文件里
                 _tag.DCSext.platform = "xxxx";  //平台名字

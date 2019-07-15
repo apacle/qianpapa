@@ -136,9 +136,9 @@ var inv = {
     },
     bind: function () {
         $('#sumbitBtn').click(function () {
-            if ($(this).hasClass('lodging') || $(this).hasClass('disable')) {
-                return;
-            }
+            // if ($(this).hasClass('lodging') || $(this).hasClass('disable')) {
+            //     return;
+            // }
             inv.submitForm();
         });
 
@@ -226,19 +226,31 @@ var inv = {
 
 
             console.log(params);
-            var baseUrl = "http://www.qianpapa.com/prod-api/";
+            var baseUrl = "http://qianpapa.com/prod-api/";
             if (window.location.href.indexOf("localhost") != -1) {
                 baseUrl = "http://localhost:8899/";
             } else if (window.location.href.indexOf("faqianle.cc") != -1) {
                 baseUrl = "http://www.faqianle.cc/prod-api/";
             }
 
+            var userId = window.localStorage.getItem("userId");
+            if (userId == null) {
+                userId = 1;
+            }
+
+            var regexp = /\/[0-9]+\//g;
+            var nums = window.location.href.match(regexp);
+            var marketingId = 2;
+            if (nums.length > 0) {
+                marketingId = nums[0].replace("/", "").replace("/", "");
+            }
+
             $.ajax({
                 type: "post",
                 url: baseUrl + "customer/register",
                 data: {
-                    userId: window.localStorage.getItem("userId"),
-                    marketingId: window.localStorage.getItem("marketingId"),
+                    userId: userId,
+                    marketingId: marketingId,
                     // cn: this.$store.state.cn || sessionStorage.getItem("cn"),
                     customerPhone: params.mobile,
                     customerName: params.name,
@@ -251,18 +263,18 @@ var inv = {
                 },
                 dataType: 'json',  //【这里要小心啊，不要用jsonp，一定是json】
                 crossDomain: true,  //【这个很重要，一定要加】
-                success: function (response) {
-                    var isOldCust = response.isOldCust;
-                    var firstFlowId = response.flowId;
-                    inv.firstFlowId = firstFlowId;
-                    if (response != null || response.error == null) {
-                        // $('.dm').css('display', "block");
+                success: function (result) {
+                    console.log(result);
+                    if (result.code === 10000) {
+                        // var isOldCust = result.isOldCust;
+                        // var firstFlowId = result.flowId;
+                        // inv.firstFlowId = firstFlowId;
+
                         $("#mq_inp").focus();
                         $('body').scrollTop(0);
-
                         window.location.href = "step3-success.html";
-                        // inv._obtainCode();
-                        // setCookie("mediaSourceId", params.mediaSourceId, "/");
+                    } else {
+                        alert(result.msg)
                     }
                 },
                 error: function (result) {
@@ -324,7 +336,7 @@ var inv = {
                                 if (isOldCust) {
                                     inv.errorCode = errorCode;
                                     $(".dm").css("display", "none");
-                                    inv.welcomToast("平安好贷欢迎您再次回来，请核对您的历史信息！如有变更，还请及时更正哦~！");
+                                    inv.welcomToast("钱爸爸好贷欢迎您再次回来，请核对您的历史信息！如有变更，还请及时更正哦~！");
                                 } else {
                                     window.location.href = "fail.html?type=" + response.error.errorCode;
                                 }
@@ -347,7 +359,7 @@ var inv = {
                                 inv.flowId = flowId;
                                 if (isOldCust) {
                                     $(".dm").css("display", "none");
-                                    inv.welcomToast("平安好贷欢迎您再次回来，请核对您的历史信息！如有变更，还请及时更正哦~！");
+                                    inv.welcomToast("钱爸爸好贷欢迎您再次回来，请核对您的历史信息！如有变更，还请及时更正哦~！");
                                 } else {
                                     window.location.href = "step2-edit.html?flowId=" + flowId;
                                 }
@@ -386,7 +398,7 @@ var inv = {
                                 if (isOldCust) {
                                     inv.errorCode = errorCode;
                                     $(".dm").css("display", "none");
-                                    inv.welcomToast("平安好贷欢迎您再次回来，请核对您的历史信息！如有变更，还请及时更正哦~！");
+                                    inv.welcomToast("钱爸爸好贷欢迎您再次回来，请核对您的历史信息！如有变更，还请及时更正哦~！");
                                 } else {
                                     window.location.href = "fail.html?type=" + response.error.errorCode;
                                 }
@@ -398,7 +410,7 @@ var inv = {
                             inv.flowId = flowId;
                             if (isOldCust) {
                                 $(".dm").css("display", "none");
-                                inv.welcomToast("平安好贷欢迎您再次回来，请核对您的历史信息！如有变更，还请及时更正哦~！");
+                                inv.welcomToast("钱爸爸好贷欢迎您再次回来，请核对您的历史信息！如有变更，还请及时更正哦~！");
                             } else {
                                 window.location.href = "step2-edit.html?flowId=" + flowId;
                             }

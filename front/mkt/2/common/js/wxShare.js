@@ -11,37 +11,37 @@ var wxShare = {
 		var this_ = this;
 		var localUrl = window.location.host;
 		var protocol = window.location.protocol;
-		if(localUrl.indexOf('test-haodai.pingan.com') != -1){
+		if(localUrl.indexOf('test-haodai.qianpapa.com') != -1){
 			if ("https:" == protocol) {
-				this_.redirect_uri = 'https%3A%2F%2Feim-talk-stg1.pingan.com.cn%2Fits-pir%2F';
-				this_.link = 'https%3A%2F%2Ftest-haodai.pingan.com' + link;
-				this_.shareLink = 'https://test-haodai.pingan.com';
-				this_.weappNo = 'PINGAN_HD_01';
+				this_.redirect_uri = 'https%3A%2F%2Feim-talk-stg1.qianpapa.com.cn%2Fits-pir%2F';
+				this_.link = 'https%3A%2F%2Ftest-haodai.qianpapa.com' + link;
+				this_.shareLink = 'https://test-haodai.qianpapa.com';
+				this_.weappNo = 'qianpapa_HD_01';
 				this_.appid = 'wx1fab99773ab4588d';
-				this_.signatureUrl = 'https://eim-talk-stg1.pingan.com.cn/its-pir/getSignature';
+				this_.signatureUrl = 'https://eim-talk-stg1.qianpapa.com.cn/its-pir/getSignature';
 			} else {
-				this_.redirect_uri = 'http%3A%2F%2Feim-talk-stg.dmzstg.pingan.com.cn%2Fits-pir%2F';
-				this_.link = 'http%3A%2F%2Ftest-haodai.pingan.com' + link;
-				this_.shareLink = 'http://test-haodai.pingan.com';
-				this_.weappNo = 'PINGAN_HD_01';
+				this_.redirect_uri = 'http%3A%2F%2Feim-talk-stg.dmzstg.qianpapa.com.cn%2Fits-pir%2F';
+				this_.link = 'http%3A%2F%2Ftest-haodai.qianpapa.com' + link;
+				this_.shareLink = 'http://test-haodai.qianpapa.com';
+				this_.weappNo = 'qianpapa_HD_01';
 				this_.appid = 'wx1fab99773ab4588d';
-				this_.signatureUrl = 'http://eim-talk-stg.dmzstg.pingan.com.cn/its-pir/getSignature';
+				this_.signatureUrl = 'http://eim-talk-stg.dmzstg.qianpapa.com.cn/its-pir/getSignature';
 			}
-		}else if(localUrl.indexOf('haodai.pingan.com') != -1){
+		}else if(localUrl.indexOf('haodai.qianpapa.com') != -1){
 			if("https:" == protocol){
-				this_.redirect_uri = 'https%3A%2F%2Feim.pingan.com.cn%2Fits%2F';
-				this_.shareLink = 'https://haodai.pingan.com';
-				this_.link = 'https%3A%2F%2Fhaodai.pingan.com' + link;
-				this_.weappNo = 'PINGAN_HD_01';
+				this_.redirect_uri = 'https%3A%2F%2Feim.qianpapa.com.cn%2Fits%2F';
+				this_.shareLink = 'https://haodai.qianpapa.com';
+				this_.link = 'https%3A%2F%2Fhaodai.qianpapa.com' + link;
+				this_.weappNo = 'qianpapa_HD_01';
 				this_.appid = 'wxea8c2a184f6288c4';
-				this_.signatureUrl = 'https://eim.pingan.com.cn/its/getSignature';
+				this_.signatureUrl = 'https://eim.qianpapa.com.cn/its/getSignature';
 			}else{
-				this_.redirect_uri = 'http%3A%2F%2Feim.pingan.com.cn%2Fits%2F';
-				this_.shareLink = 'http://haodai.pingan.com';
-				this_.link = 'http%3A%2F%2Fhaodai.pingan.com' + link;
-				this_.weappNo = 'PINGAN_HD_01';
+				this_.redirect_uri = 'http%3A%2F%2Feim.qianpapa.com.cn%2Fits%2F';
+				this_.shareLink = 'http://haodai.qianpapa.com';
+				this_.link = 'http%3A%2F%2Fhaodai.qianpapa.com' + link;
+				this_.weappNo = 'qianpapa_HD_01';
 				this_.appid = 'wxea8c2a184f6288c4';
-				this_.signatureUrl = 'http://eim.pingan.com.cn/its/getSignature';
+				this_.signatureUrl = 'http://eim.qianpapa.com.cn/its/getSignature';
 			}
 		 }
 		/*微信分享功能*/
@@ -50,7 +50,7 @@ var wxShare = {
 		    url : this_.signatureUrl,
 		    data : {
 				openid: openid,
-		        weappNo:this_.weappNo 
+		        weappNo:this_.weappNo
 		     },
 		     type : 'GET',
 		     dataType : 'jsonp',
@@ -68,10 +68,10 @@ var wxShare = {
 		        	                'onMenuShareTimeline',
 		                            'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
 		            });
-		         
+
 		     }
 		});
-	   
+
 		wx.ready(function(){
 	       wx.checkJsApi({
 	             jsApiList: [
@@ -79,17 +79,17 @@ var wxShare = {
 	                 'onMenuShareAppMessage'
 	             ]
 	         });
-	    
+
 	       /*分享到朋友圈*/
 	       wx.onMenuShareTimeline({
 	             title: titleFCircle, // 分享标题
 	             link: this_.shareLink +'/wap/commonShare-ucp.html?redirect_uri='+this_.redirect_uri+'&appid='+this_.appid+'&weappNo='+this_.weappNo+'&link='+this_.link , // 分享链接
 	             imgUrl: this_.shareLink + imgUrl, // 分享图标
-	             success: function () { 
+	             success: function () {
 	            	 wxShare.gainShareIntegral(custToken, openid, source);
 		         }
 	       });
-	       /*分享给朋友*/   
+	       /*分享给朋友*/
 	       wx.onMenuShareAppMessage({
 	             title: titleFriend, // 分享标题
 	             desc: desc, // 标题描述
@@ -98,10 +98,10 @@ var wxShare = {
 	             success: function () {
 	            	 wxShare.gainShareIntegral(custToken, openid, source);
 	             }
-	       }); 
+	       });
 		});
 	},
-	
+
 	gainShareIntegral : function(token, openid, source){
 		if(token && openid){
 			var awardCode = "JF001";
@@ -117,8 +117,8 @@ var wxShare = {
 				//贷款材料须知分享
 				activiCode = "04A20180516186";
 			}
-			
-			if(localUrl.indexOf('test-haodai.pingan.com') != -1){
+
+			if(localUrl.indexOf('test-haodai.qianpapa.com') != -1){
 				if(source === "1"){
 					//来源微信一段式
 					activiCode = "04A20180515122";

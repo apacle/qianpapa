@@ -123,18 +123,18 @@ var inv = {
         $("#telphone").blur(function () {
             inv._leakTelValidator();
         });
-        $('#shareToQq').bind("click", function () {
-            var localUrl = window.location.host;
-            if (localUrl.indexOf('test-haodai.pingan.com') != -1) {//新域名
-                link = 'http://test-haodai.pingan.com/' + this_.link;
-                picUrl = 'https://test-haodai.pingan.com/jisuanqi/' + this_.picUrl;
-            } else if (localUrl.indexOf('haodai.pingan.com') != -1) {
-                link = 'http://haodai.pingan.com/' + this_.link;
-                picUrl = 'https://haodai.pingan.com/jisuanqi/' + this_.picUrl;
-            }
-            var shareqqzonestring = 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?desc=' + this_.desc + '&title=' + this_.title + '&summary=' + this_.title + '&url=' + window.encodeURIComponent(link) + '&pics=' + window.encodeURIComponent(picUrl);
-            window.open(shareqqzonestring, 'newwindow', 'height=400,width=400,top=100,left=100');
-        });
+        // $('#shareToQq').bind("click", function () {
+        //     var localUrl = window.location.host;
+        //     if (localUrl.indexOf('test-haodai.qianpapa.com') != -1) {//新域名
+        //         link = 'http://test-haodai.qianpapa.com/' + this_.link;
+        //         picUrl = 'https://test-haodai.qianpapa.com/jisuanqi/' + this_.picUrl;
+        //     } else if (localUrl.indexOf('haodai.qianpapa.com') != -1) {
+        //         link = 'http://haodai.qianpapa.com/' + this_.link;
+        //         picUrl = 'https://haodai.qianpapa.com/jisuanqi/' + this_.picUrl;
+        //     }
+        //     var shareqqzonestring = 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?desc=' + this_.desc + '&title=' + this_.title + '&summary=' + this_.title + '&url=' + window.encodeURIComponent(link) + '&pics=' + window.encodeURIComponent(picUrl);
+        //     window.open(shareqqzonestring, 'newwindow', 'height=400,width=400,top=100,left=100');
+        // });
     },
     initMedia: function () {
         var this_ = this;

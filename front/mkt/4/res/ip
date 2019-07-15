@@ -1,0 +1,18 @@
+QQmap&&QQmap({
+    "status": 0,
+    "message": "query ok",
+    "result": {
+        "ip": "113.111.61.97",
+        "location": {
+            "lat": 23.12463,
+            "lng": 113.36199
+        },
+        "ad_info": {
+            "nation": "中国",
+            "province": "广东省",
+            "city": "广州市",
+            "district": "天河区",
+            "adcode": 440106
+        }
+    }
+})

@@ -82,10 +82,10 @@ var jisuan = {
         $(".service").click(function () {
             if (this_.is_weixn()) {//跳转微信绑定页面
                 var localUrl = window.location.host;
-                if (localUrl.indexOf('test-haodai.pingan.com') != -1) {//新域名
-                    window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1fab99773ab4588d&redirect_uri=http%3A%2F%2Feim-talk-stg.dmzstg.pingan.com.cn%2Fits-pir%2Fredirect%3FbackUrl%3Dhttp%3A%2F%2Ftest-haodai.pingan.com%2Fjisuanqi%2FmiddleJump-ucp.html%26weappNo%3DPINGAN_HD_01&response_type=code&scope=snsapi_base&state=sig#wechat_redirect";
-                } else if (localUrl.indexOf('haodai.pingan.com') != -1) {
-                    window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxea8c2a184f6288c4&redirect_uri=http%3A%2F%2Feim.pingan.com.cn%2Fits%2Fredirect%3FbackUrl%3Dhttp%3A%2F%2Fhaodai.pingan.com%2Fjisuanqi%2FmiddleJump-ucp.html%26weappNo%3DPINGAN_HD_01&response_type=code&scope=snsapi_base&state=sig#wechat_redirect";
+                if (localUrl.indexOf('test-haodai.qianpapa.com') != -1) {//新域名
+                    window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1fab99773ab4588d&redirect_uri=http%3A%2F%2Feim-talk-stg.dmzstg.qianpapa.com.cn%2Fits-pir%2Fredirect%3FbackUrl%3Dhttp%3A%2F%2Ftest-haodai.qianpapa.com%2Fjisuanqi%2FmiddleJump-ucp.html%26weappNo%3Dqianpapa_HD_01&response_type=code&scope=snsapi_base&state=sig#wechat_redirect";
+                } else if (localUrl.indexOf('haodai.qianpapa.com') != -1) {
+                    window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxea8c2a184f6288c4&redirect_uri=http%3A%2F%2Feim.qianpapa.com.cn%2Fits%2Fredirect%3FbackUrl%3Dhttp%3A%2F%2Fhaodai.qianpapa.com%2Fjisuanqi%2FmiddleJump-ucp.html%26weappNo%3Dqianpapa_HD_01&response_type=code&scope=snsapi_base&state=sig#wechat_redirect";
                 }
             } else
                 alert("请在微信中打开");

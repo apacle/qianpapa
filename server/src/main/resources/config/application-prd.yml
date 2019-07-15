@@ -3,4 +3,4 @@ spring :
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/vue_admin?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
-    password: seatelDB@2017
+    password: hao138168

@@ -47,7 +47,7 @@ public class LogAdvice {
             logger.info(args[0].toString());
         result = pjp.proceed(args);
 
-        logger.info("响应:" + JSONObject.fromObject(result).toString());
+        logger.info("响应:" + result.toString());
         return result;
     }
 

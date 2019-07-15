@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>平安好贷-贷款服务</title>
+    <title>钱爸爸好贷-贷款服务</title>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" href="app_css/mobile2.css"/>
@@ -42,13 +42,13 @@
     }
 
     .success_a {
-        width: 87.2%;
+        width: 90%;
         height: 3.3rem;
         background: url(app_img/success_btn3.png) no-repeat top center;
         background-size: 100% auto;
         display: block;
         color: #fff;
-        margin-left: 6.4%;
+        margin-left: 5%;
         text-indent: 26%;
         line-height: 3.1rem;
         margin-top: 1rem;
@@ -73,7 +73,7 @@
 <img src="app_img/success_icon.png" alt="" class="success_icon"/>
 <div class="success_title">恭喜！ 您的贷款申请已受理！</div>
 <div class="success_txt">后续将有客户经理给您致电，请注意接听 <br>0760-89889262的来电。</div>
-<a href="tel:4000317256" class="success_a" otype="button" otitle="new.yds.thirdIB">点击拨打 0760-89889262</a>
+<a href="tel:4000317256" class="success_a" otype="button" otitle="new.yds.thirdIB">拨打 0760-89889262</a>
 <!--<a href="" id="banner" otype="button" otitle="new.yds.third.integral"><img src="app_img/success_link.jpg" alt=""-->
                                                                            <!--class="success_link"></a>-->
 
@@ -83,7 +83,7 @@
 <!-- 	<div class="down_detail">通过APP可上传贷款材料，查询贷款进度</div> -->
 <!-- 	<div class="down_link fix down_link2"> -->
 <!-- 		<a href="https://itunes.apple.com/cn/app/%E5%B9%B3%E5%AE%89%E5%A5%BD%E8%B4%B7/id1294152536?mt=8" class="down_link_l fl"><img src="app_img/iphone.png" alt="" /></a> -->
-<!-- 		<a href="https://pahd-app.pingan.com.cn/pahd-static/staticfile/appDownload/appDownload.html" class="down_link_l fr"><img src="app_img/android.png" /></a> -->
+<!-- 		<a href="https://pahd-app.qianpapa.com.cn/pahd-static/staticfile/appDownload/appDownload.html" class="down_link_l fr"><img src="app_img/android.png" /></a> -->
 <!-- 	</div> -->
 <!-- 	<div class="down_hot">下载即可领取100元降息红包！</div> -->
 <!-- </div> -->
@@ -119,7 +119,7 @@
     var url = window.location.href;
 
     function isTestEvn() {
-        if (url.indexOf('test-haodai.pingan.com') != -1 || url.indexOf('test2-haodai.pingan.com') != -1) {
+        if (url.indexOf('test-haodai.qianpapa.com') != -1 || url.indexOf('test2-haodai.qianpapa.com') != -1) {
             return true;
         }
         return false;
@@ -133,18 +133,18 @@
         var menuId = '';
         if (isTestEvn()) {
             if ("https:" == protocol) {
-                redirect_uri = 'http%3A%2F%2Feim-talk-stg.dmzstg.pingan.com.cn%2Fits-pir%2Fredirect%3FbackUrl%3Dhttps%3A%2F%2Ftest-haodai.pingan.com%2Fgrzx%2Fwap%2FintegralItemMall.html%26weappNo%3DPINGAN_HD_01';
+                redirect_uri = 'http%3A%2F%2Feim-talk-stg.dmzstg.qianpapa.com.cn%2Fits-pir%2Fredirect%3FbackUrl%3Dhttps%3A%2F%2Ftest-haodai.qianpapa.com%2Fgrzx%2Fwap%2FintegralItemMall.html%26weappNo%3Dqianpapa_HD_01';
                 appid = 'wx1fab99773ab4588d';
             } else {
-                redirect_uri = 'http%3A%2F%2Feim-talk-stg.dmzstg.pingan.com.cn%2Fits-pir%2Fredirect%3FbackUrl%3Dhttp%3A%2F%2Ftest-haodai.pingan.com%2Fgrzx%2Fwap%2FintegralItemMall.html%26weappNo%3DPINGAN_HD_01';
+                redirect_uri = 'http%3A%2F%2Feim-talk-stg.dmzstg.qianpapa.com.cn%2Fits-pir%2Fredirect%3FbackUrl%3Dhttp%3A%2F%2Ftest-haodai.qianpapa.com%2Fgrzx%2Fwap%2FintegralItemMall.html%26weappNo%3Dqianpapa_HD_01';
                 appid = 'wx1fab99773ab4588d';
             }
         } else {
             if ("https:" == protocol) {
-                redirect_uri = 'http%3A%2F%2Feim.pingan.com.cn%2Fits%2Fredirect%3FbackUrl%3Dhttps%3A%2F%2Fhaodai.pingan.com%2Fgrzx%2Fwap%2FintegralItemMall.html%26weappNo%3DPINGAN_HD_01';
+                redirect_uri = 'http%3A%2F%2Feim.qianpapa.com.cn%2Fits%2Fredirect%3FbackUrl%3Dhttps%3A%2F%2Fhaodai.qianpapa.com%2Fgrzx%2Fwap%2FintegralItemMall.html%26weappNo%3Dqianpapa_HD_01';
                 appid = 'wxea8c2a184f6288c4';
             } else {
-                redirect_uri = 'http%3A%2F%2Feim.pingan.com.cn%2Fits%2Fredirect%3FbackUrl%3Dhttp%3A%2F%2Fhaodai.pingan.com%2Fgrzx%2Fwap%2FintegralItemMall.html%26weappNo%3DPINGAN_HD_01';
+                redirect_uri = 'http%3A%2F%2Feim.qianpapa.com.cn%2Fits%2Fredirect%3FbackUrl%3Dhttp%3A%2F%2Fhaodai.qianpapa.com%2Fgrzx%2Fwap%2FintegralItemMall.html%26weappNo%3Dqianpapa_HD_01';
                 appid = 'wxea8c2a184f6288c4';
             }
         }

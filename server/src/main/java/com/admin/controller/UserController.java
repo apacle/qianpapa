@@ -56,6 +56,13 @@ public class UserController {
         return ResponseUtil.getResponse(data);
     }
 
+    @ApiModelProperty(value = "统一下单接口", notes = "统一下单")
+    @ApiResponse(code = 200, message = "统一下单")
+    @PostMapping("/logout")
+    public Response logout() {
+        return ResponseUtil.getResponse("");
+    }
+
 
     @GetMapping(value = "/info")
     @ResponseBody

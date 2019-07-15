@@ -62,7 +62,7 @@ webpackJsonp([2], {
                             //         e.$router.push("/create-success");
                             //     },
                             //     "json");
-                            var baseUrl = "http://www.qianpapa.com/prod-api/";
+                            var baseUrl = "http://qianpapa.com/prod-api/";
                             if (window.location.href.indexOf("localhost") != -1) {
                                 baseUrl = "http://localhost:8899/";
                             } else if (window.location.href.indexOf("faqianle.cc") != -1) {
@@ -93,7 +93,11 @@ webpackJsonp([2], {
                                 dataType: 'json',  //【这里要小心啊，不要用jsonp，一定是json】
                                 crossDomain: true,  //【这个很重要，一定要加】
                                 success: function (result) {
-                                    e.$router.push("/create-success");
+                                    if (result.code === 10000) {
+                                        e.$router.push("/create-success");
+                                    } else {
+                                        alert(result.msg)
+                                    }
                                 },
                                 error: function (result) {
                                     console.log(result);

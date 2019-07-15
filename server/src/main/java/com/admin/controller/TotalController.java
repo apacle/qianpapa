@@ -53,8 +53,23 @@ public class TotalController {
         JSONObject data = new JSONObject();
         data.put("customer", customerMapper.countByExample(new CustomerExample()));
         data.put("user", userMapper.countByExample(new UserExample()));
-        data.put("loan", loanMapper.countByExample(new LoanExample()));
-        data.put("repay", repayMapper.countByExample(new RepayExample()));
+
+        LoanExample loanExample = new LoanExample();
+        loanExample.createCriteria().andLoanStatusNotEqualTo(0);
+        List<Loan> loanList = loanMapper.selectByExample(loanExample);
+        BigDecimal totalLoan = BigDecimal.ZERO;
+        for (Loan loan : loanList) {
+            totalLoan = totalLoan.add(loan.getLoanAmount());
+        }
+        RepayExample repayExample = new RepayExample();
+        repayExample.createCriteria().andRepayStatusNotEqualTo(0);
+        List<Repay> repayList = repayMapper.selectByExample(repayExample);
+        BigDecimal totalRepay = BigDecimal.ZERO;
+        for (Repay repay : repayList) {
+            totalRepay = totalRepay.add(repay.getRepayAmount());
+        }
+        data.put("loan", totalLoan);
+        data.put("repay", totalRepay);
         return ResponseUtil.getResponse(data);
     }
 

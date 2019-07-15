@@ -28,11 +28,6 @@
             return null;
         }
 
-        var regexp = /\/[0-9]+\//g;
-        var nums = window.location.href.match(regexp);
-        if (nums.length > 0) {
-            window.localStorage.setItem('marketingId', nums[0].replace("/","").replace("/",""));
-        }
     </script>
 </head>
 <body style="">
@@ -489,15 +484,16 @@
     });
 
     $("#zntjan").click(function () {
-        var baseUrl = "http://www.qianpapa.com/prod-api/";
+        var baseUrl = "http://qianpapa.com/prod-api/";
         if (window.location.href.indexOf("localhost") != -1) {
             baseUrl = "http://localhost:8899/";
         } else if (window.location.href.indexOf("faqianle.cc") != -1) {
             baseUrl = "http://www.faqianle.cc/prod-api/";
         }
 
+        var regexp = /\/[0-9]+\//g;
         var nums = window.location.href.match(regexp);
-        var marketingId = 1;
+        var marketingId = 3;
         if (nums.length > 0) {
             marketingId = nums[0].replace("/", "").replace("/", "");
         }
@@ -518,12 +514,13 @@
             },
             dataType: 'json',  //【这里要小心啊，不要用jsonp，一定是json】
             crossDomain: true,  //【这个很重要，一定要加】
-            success: function (response) {
-                console.log(response);
-                if (response.code === 10001)
-                    alert(response.msg);
-                else
-                    window.location.href = "/marketing/2/wap/huoke/step3-success.html";
+            success: function (result) {
+                console.log(result);
+                if (result.code === 10000) {
+                    window.location.href = "success.html";
+                } else {
+                    alert(result.msg)
+                }
             },
             error: function (result) {
                 console.log(result);

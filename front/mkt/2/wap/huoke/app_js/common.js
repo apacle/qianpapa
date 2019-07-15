@@ -120,9 +120,9 @@ var common = {
             var innerMedia = this.getCookie('inner_media');
             innerMedia = decodeURI(innerMedia);
 
-            // 若cookie中为空，则默认为 'pingan'
+            // 若cookie中为空，则默认为 'qianpapa'
             if(!innerMedia) {
-                  innerMedia = 'pingan';
+                  innerMedia = 'qianpapa';
             }
 
             $('#innerMedia').val(innerMedia);          
@@ -225,7 +225,7 @@ var common = {
 			var localUrl = window.location.href;
 			
 			//朋友圈标题
-			var titleFCircle = "平安好贷贷款服务，无抵押贷款，最快24小时到账。";
+			var titleFCircle = "钱爸爸好贷贷款服务，无抵押贷款，最快24小时到账。";
 			//好友标题
 			var titleFriend = "马上贷款50万";
 			var link = "/wap/huoke/yiduanshi.html";
@@ -319,7 +319,7 @@ function dcsReady(a, b) {
 	}
 } 
 if(document.getElementById("wtjs")==null)
-loadWTScript(window.location.protocol.indexOf('https:')==0?'https://pa-ssl.pingan.com/app_js/sdc/prd/sdc9_m.js':'http://www.pingan.com/app_js/sdc/prd/sdc9_m.js', function(){ 
+loadWTScript(window.location.protocol.indexOf('https:')==0?'https://pa-ssl.qianpapa.com/app_js/sdc/prd/sdc9_m.js':'http://www.qianpapa.com/app_js/sdc/prd/sdc9_m.js', function(){
     if (typeof(_tag) != "undefined"){
       _tag.dcsid="dcs82b9ujitigdu3gaykxw0hn_5p6b";  //dcsid参数用于设置日志记录在哪个文件里
         _tag.DCSext.platform="xxxx";  //平台名字

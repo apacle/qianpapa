@@ -7,22 +7,26 @@ import com.admin.mapper.CustomerMapper;
 import com.admin.mapper.LoanMapper;
 import com.admin.mapper.RepayMapper;
 import com.admin.mapper.UserMapper;
-import com.admin.util.HttpClient;
+import com.admin.util.HttpsIgnoeClient;
 import com.admin.util.IpAdrressUtil;
 import com.admin.util.JsonUtil;
 import com.admin.util.ResponseUtil;
-import io.swagger.models.auth.In;
+import com.google.gson.Gson;
 import net.sf.json.JSONObject;
 import org.apache.ibatis.session.RowBounds;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.Serializable;
 import java.util.*;
 
 @Service
@@ -39,6 +43,14 @@ public class CustomerService {
     RepayMapper repayMapper;
     @Autowired
     UserService userService;
+
+    @Bean
+    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+        return builder.build();
+    }
+
+    @Autowired
+    private RestTemplate restTemplate;
 
     public Response register(Map<String, String> req) {
         Customer customer = new Customer();
@@ -59,24 +71,25 @@ public class CustomerService {
                 customer.setCustomerSex(Integer.valueOf(req.get("customerSex")));
             if (!StringUtils.isEmpty(req.get("marketingId")))
                 customer.setMarketingId(Integer.parseInt(req.get("marketingId")));
-
+            customer.setCustomerStatus(1);
             String customerAddress = req.get("customerAddress");
             if (StringUtils.isEmpty(customerAddress)) {
-                HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
-                        .getRequest();
-                String ip = IpAdrressUtil.getIpAdrress(request);
-                logger.info("ip====》" + ip);
-                String res = HttpClient.executeForm("http://ip.taobao.com/service/getIpInfo.php", new HashMap<String, String>() {{
-                    put("ip", ip);
-                }});
-                logger.info("res" + res);
-                if (null != res) {
-                    JSONObject json = JSONObject.fromObject(res);
-                    if ("0".equals(json.getString("code"))) {
-                        JSONObject data = JSONObject.fromObject(res);
-                        customer.setCustomerAddress(data.getString("country") + data.getString("region") + data.getString("city"));
-                    }
-                }
+
+//                HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
+//                        .getRequest();
+//                String ip = IpAdrressUtil.getIpAdrress(request);
+////                logger.info("ip====>" + ip);
+//                Map<String, String> parameterMap = new HashMap<>();
+//                parameterMap.put("ip", ip);
+//                String res = HttpsIgnoeClient.executeForm("http://ip.taobao.com/service/getIpInfo.php", parameterMap);
+//                logger.info("res" + res);
+//                if (null != res) {
+//                    JSONObject json = JSONObject.fromObject(res);
+//                    if ("0".equals(json.getString("code"))) {
+//                        JSONObject data = JSONObject.fromObject(res);
+//                        customer.setCustomerAddress(data.getString("country") + data.getString("region") + data.getString("city"));
+//                    }
+//                }
             }
             customer.setCreateTime(new Date());
             customer.setModifyTime(new Date());

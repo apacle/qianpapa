@@ -23,6 +23,15 @@
         </el-tag>
       </template>
     </el-table-column>
+    <el-table-column align="center" label="操作" width="100">
+      <template slot-scope="scope">
+        <router-link :to="'/loan/edit/'+scope.row.loanId">
+          <el-button type="primary" size="small" icon="el-icon-edit">
+            编辑
+          </el-button>
+        </router-link>
+      </template>
+    </el-table-column>
   </el-table>
 </template>
 
