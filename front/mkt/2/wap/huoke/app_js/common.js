@@ -8,7 +8,7 @@ var common = {
 			clearTimeout(window.toTimeoutPageId);
 			clearTimeout(window.flowIntervalId);
 		},
-		
+
 		/**
 		 *获取cusToken
 		 */
@@ -24,7 +24,7 @@ var common = {
 		// 		}
 		// 	});
 		// },
-		
+
 		sessionTimeoutStart : function(flowid,notFirstTime,source){
 			window.toTimeoutPageId = setTimeout(function(){//启动会话超时计时，并保存该计时ID,30分钟 30*60*1000=1800000
 				var wt = common.getMediaSouce();
@@ -44,7 +44,7 @@ var common = {
 					common.sessionTimeoutStart(flowid,true);
 				});
 			}
-			
+
 		},
 		/**
 		*	保持流程，每30秒发一次
@@ -88,7 +88,7 @@ var common = {
             if(!mediaSource || mediaSource =='direct' || mediaSource=='null') {
                   mediaSource = 'CXX-ZHITONGSEO-';
             }
-		
+
 			return mediaSource;
 		},
 		getMediaSouce : function() {
@@ -115,7 +115,7 @@ var common = {
             }
             $('#mediaSource').val(mediaSource);
         },
-        
+
         getInnerMedia : function() {
             var innerMedia = this.getCookie('inner_media');
             innerMedia = decodeURI(innerMedia);
@@ -125,7 +125,7 @@ var common = {
                   innerMedia = 'qianpapa';
             }
 
-            $('#innerMedia').val(innerMedia);          
+            $('#innerMedia').val(innerMedia);
         },
         getLpPage : function() {
             var localurl = window.document.referrer;
@@ -137,8 +137,8 @@ var common = {
             }
             $('#lpPage').val(localurl);
         },
-         
-        getCookie : function(name) { 
+
+        getCookie : function(name) {
         	var strCookie = document.cookie;
         	var arrCookie = strCookie.split(";");
 
@@ -219,11 +219,11 @@ var common = {
 				return true;
 			}
 		},
-		
+
 		//初始化微信分享
 		initWxShare : function(){
 			var localUrl = window.location.href;
-			
+
 			//朋友圈标题
 			var titleFCircle = "钱爸爸好贷贷款服务，无抵押贷款，最快24小时到账。";
 			//好友标题
@@ -238,7 +238,7 @@ var common = {
 			if(!openId){
 				openId = '1111111111111111';
 			}
-			
+
 			if(localUrl.indexOf('huoke/yiduanshi-bdd.html') != -1){
 				titleFCircle = "无抵押无担保，有保单就可来贷款！最快24小时到账哦~";
 				titleFriend = "保单新功能上线";
@@ -280,7 +280,7 @@ var common = {
 		unhtml :function(str, reg) {
 			if(str){
 		         return str ? str.replace(reg || /[&<">'](?:(amp|lt|quot|gt|#39|nbsp);)?/g, function (a, b) {
-		                   if (b) {return a;} 
+		                   if (b) {return a;}
 		                   else {
 		                            return {
 		                                     '<':'&lt;',
@@ -317,14 +317,14 @@ function dcsReady(a, b) {
 	}: a.onload = function() {
 		b()
 	}
-} 
+}
 if(document.getElementById("wtjs")==null)
 loadWTScript(window.location.protocol.indexOf('https:')==0?'https://pa-ssl.qianpapa.com/app_js/sdc/prd/sdc9_m.js':'http://www.qianpapa.com/app_js/sdc/prd/sdc9_m.js', function(){
     if (typeof(_tag) != "undefined"){
       _tag.dcsid="dcs82b9ujitigdu3gaykxw0hn_5p6b";  //dcsid参数用于设置日志记录在哪个文件里
         _tag.DCSext.platform="xxxx";  //平台名字
         var s=_tag.dcsGetIdAsync();
-        if(s) 
+        if(s)
             dcsReady(s,function(){_tag.dcsCollect()});
         else
             _tag.dcsCollect();
